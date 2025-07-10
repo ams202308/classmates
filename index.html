@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Одноклассники</title>
+    <style>
+        .bg-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: -1; /* Отправляем этот слой назад */
+            background-image: url('./img/classmates.webp');
+            background-size: contain;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        main {
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="bg-container"></div>
+    <div class="fg-container">
+        <!-- контент
+        дивы с абсолютным позицированием относительно fg-container
+        при mouse hover - всплывает ФИО
+        при click (tap) - всплывает фото с затенением fg-container
+        
+        -->
+    </div>
+</body>
+</html>
