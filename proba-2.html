@@ -1,30 +1,36 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Одноклассники</title>
+    <title>Картинка с анимацией</title>
     <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #f0f0f0;
+        }
+
+        /* Основной блок */
         .container {
-            position: relative;
-            width: 100%;
-            /* теперь контейнер занимает всю ширину экрана */
-            height: auto;
-            /* высота рассчитывается автоматически исходя из соотношения сторон */
-        }
-
-        .classmates {
-            width: 100%;
-            /* ширина изображения равна ширине контейнера */
-            height: auto;
-            /* высота вычисляется автоматически, сохраняя пропорции */
-        }
-
-        .overlay-div {
-            position: absolute;
-            /* border: 1px solid red; */
-            background-color: rgba(246, 246, 52, 0.1);
+            cursor: pointer;
+            width: 200px;
+            height: 200px;
+            background-color: #ccc;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            user-select: none;
         }
 
         /* Подсказка (изначально скрыта) */
@@ -64,31 +70,12 @@
 
 <body>
 
-    <div class="popup" id="popup">
-        <span class="close" onclick="hidePopup()">×</span>
-        <img src="" alt="Изображение">
-        <p></p>
-    </div>
-
-    <div class="container">
-        <img class="classmates" src="./img/classmates.webp" alt="Image" />
-
-        <div class="overlay-div" id="arykov-malik.webp" style="top: 64%; left: 79%; width: 8%; height: 14%;"
-            data-text="Малик Арыков. Калуга-2015">
-        </div>
-    </div>
+    <div class="container" id="arykov-malik.webp" data-text="Описание изображения №1" onclick="showPopup(this)">Открыть первую
+        картинку</div>
+    <div class="container" id="arykov-malik-2.webp" data-text="Описание изображения №2" onclick="showPopup(this)">Открыть вторую
+        картинку</div>
 
     <script>
-        // Найдем все элементы с классом overlay-div
-        let containers = document.querySelectorAll('.overlay-div');
-
-        // Перебираем их и добавляем обработчики событий
-        containers.forEach(container => {
-            container.addEventListener('click', () => {
-                showPopup(container); // Передаем текущий элемент в нашу функцию
-            });
-        });
-
         function showPopup(divElement) {
             // Получаем значение ID (это путь к изображению) и атрибут data-text (текст)
             let imageSrc = './img/' + divElement.id || '';      // Имя изображения берем из ID
@@ -111,7 +98,6 @@
             popup.style.display = 'none';
         }
     </script>
-
 </body>
 
 </html>

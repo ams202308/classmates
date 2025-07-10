@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Одноклассники</title>
+    <style>
+        .container {
+            position: relative;
+            width: 100%;
+            /* теперь контейнер занимает всю ширину экрана */
+            height: auto;
+            /* высота рассчитывается автоматически исходя из соотношения сторон */
+        }
+
+        .classmates {
+            width: 100%;
+            /* ширина изображения равна ширине контейнера */
+            height: auto;
+            /* высота вычисляется автоматически, сохраняя пропорции */
+        }
+
+        .overlay-div {
+            position: absolute;
+            border: 1px solid red;
+            /* Для наглядности рамка вокруг дивов */
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <img class="classmates" src="./img/classmates.webp" alt="Image" />
+        <div id="kim-larisa" title="Ким Лариса" class="overlay-div"
+            style="top: 32%; left: 24%; width: 7%; height: 14%;">
+        </div>
+    </div>
+
+</body>
+
+</html>
