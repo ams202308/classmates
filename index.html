@@ -6,29 +6,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Одноклассники</title>
     <style>
+        /* Контейнер для виньетки и подсвеченных фото */
         .container {
             position: relative;
             width: 100%;
-            /* теперь контейнер занимает всю ширину экрана */
             height: auto;
-            /* высота рассчитывается автоматически исходя из соотношения сторон */
         }
 
+        /* Общее фото - виньетка */
         .classmates {
             width: 100%;
-            /* ширина изображения равна ширине контейнера */
             height: auto;
-            /* высота вычисляется автоматически, сохраняя пропорции */
         }
 
-        .overlay-div {
+        /* Подсветка фото на виньетке - признак наличия всплывающего фото и описания */
+        .backlight {
             position: absolute;
             /* border: 1px solid red; */
             background-color: rgba(246, 246, 52, 0.1);
         }
 
-        /* Подсказка (изначально скрыта) */
-        .popup {
+        /* Всплывающее окно (фото + описание) */
+        .popup-info {
             display: none;
             position: fixed;
             top: 50%;
@@ -38,23 +37,18 @@
             padding: 20px;
             border-radius: 10px;
             box-shadow: 0 0 10px rgba(0, 0, 0, .3);
-            animation: fadeIn 1.0s forwards;
-            opacity: 0;
             z-index: 1000;
         }
 
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-            }
-
-            to {
-                opacity: 1;
-            }
+        /* Всплывающее фото */
+        .popup-image {
+            max-width: 50vmin;
+            max-height: 50vmin;
+            object-fit: contain;
         }
 
         /* Крестик для закрытия */
-        .close {
+        .popup-close {
             float: right;
             cursor: pointer;
             font-weight: bold;
@@ -64,51 +58,50 @@
 
 <body>
 
-    <div class="popup" id="popup">
-        <span class="close" onclick="hidePopup()">×</span>
-        <img src="" alt="Изображение">
+    <div class="popup-info" id="popup-info">
+        <span class="popup-close" onclick="hidePopup()">×</span>
+        <img class="popup-image" src="" alt="">
         <p></p>
     </div>
 
     <div class="container">
         <img class="classmates" src="./img/classmates.webp" alt="Image" />
 
-        <div class="overlay-div" id="arykov-malik.webp" style="top: 64%; left: 79%; width: 8%; height: 14%;"
+        <div class="backlight" id="arykov-malik.webp" style="top: 64%; left: 79%; width: 8%; height: 14%;"
             data-text="Малик Арыков. Калуга-2015">
         </div>
     </div>
 
     <script>
-        // Найдем все элементы с классом overlay-div
-        let containers = document.querySelectorAll('.overlay-div');
-
-        // Перебираем их и добавляем обработчики событий
+        // Ко всем элементам с классом backlight (признак наличия фото)
+        // добавляем обработчик события 'click'
+        let containers = document.querySelectorAll('.backlight');
         containers.forEach(container => {
             container.addEventListener('click', () => {
-                showPopup(container); // Передаем текущий элемент в нашу функцию
+                showPopup(container);
             });
         });
 
         function showPopup(divElement) {
-            // Получаем значение ID (это путь к изображению) и атрибут data-text (текст)
-            let imageSrc = './img/' + divElement.id || '';      // Имя изображения берем из ID
-            let popupText = divElement.dataset.text || '';
+            let imageSrc = './img/' + divElement.id || '';  // имя изображения берем из ID
+            let popupText = divElement.dataset.text || ''; // описание фото - из data-text
 
-            // Устанавливаем полученные значения в соответствующее место
-            let popup = document.getElementById('popup');
-            let imgElement = popup.querySelector('img');
-            let textElement = popup.querySelector('p');
+            // устанавливаем полученные значения в соответствующее место
+            let popupInfo = document.getElementById('popup-info');
+            let imgElement = popupInfo.querySelector('img');
+            let textElement = popupInfo.querySelector('p');
 
-            imgElement.src = imageSrc;              // Установим новое изображение
-            textElement.innerText = popupText;       // Установим новый текст
+            imgElement.src = imageSrc;
+            textElement.innerText = popupText;
 
-            // Покажем всплывающее окно
-            popup.style.display = 'block';
+            // показываем всплывающее окно
+            popupInfo.style.display = 'block';
         }
 
         function hidePopup() {
-            let popup = document.getElementById('popup');
-            popup.style.display = 'none';
+            // скрываем всплывающее окно
+            let popupInfo = document.getElementById('popup-info');
+            popupInfo.style.display = 'none';
         }
     </script>
 
