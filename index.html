@@ -22,9 +22,12 @@
         /* Подсветка фото на виньетке - признак наличия всплывающего фото и описания */
         .backlight {
             position: absolute;
+            width: 7.5%;
+            height: 13%;
+            border-radius: 50% / 50%;
             /* border: 1px solid red; */
-            background-color: rgba(246, 246, 52, 0.1);
-        }
+            background-color: rgba(255, 255, 0, 0.1);
+       }
 
         /* Всплывающее окно (фото + описание) */
         .popup-info {
@@ -47,6 +50,10 @@
             object-fit: contain;
         }
 
+        .popup-caption {
+            font-family: Arial, sans-serif;
+        }
+
         /* Крестик для закрытия */
         .popup-close {
             float: right;
@@ -61,14 +68,14 @@
     <div class="popup-info" id="popup-info">
         <span class="popup-close" onclick="hidePopup()">×</span>
         <img class="popup-image" src="" alt="">
-        <p></p>
+        <p class="popup-caption"></p>
     </div>
 
     <div class="container">
         <img class="classmates" src="./img/classmates.webp" alt="Image" />
 
-        <div class="backlight" id="arykov-malik.webp" style="top: 64%; left: 79%; width: 8%; height: 14%;"
-            data-text="Малик Арыков. Калуга-2015">
+        <div class="backlight" id="arykov-malik.webp" style="top: 64%; left: 79%;"
+            data-text="Малик Арыков - 2015. Калуга">
         </div>
     </div>
 
