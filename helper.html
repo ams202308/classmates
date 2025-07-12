@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Кликабельная картинка с одним овалом</title>
+        <style>
+            body {
+                margin: 0;
+                overflow: auto; /* допускается вертикальная прокрутка */
+            }
+            .container {
+                position: relative;
+                width: 100%;
+            }
+            img {
+                width: 100%;
+                height: auto;
+                display: block;
+            }
+            /* Овал */
+            .oval-help {
+                position: absolute;
+                border-radius: 50% / 50%;
+                border: 1px solid red;
+                background-color: rgba(0, 128, 0, 0.3); /* полупрозрачный зеленый */
+                width: 7.5%; /* по ширине относительно контейнера */
+                height: 12.5%; /* по высоте относительно контейнера */
+                /* transform: translate(-50%, -50%); центрировать по точке клика */
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                color: white;
+                font-size: 0.8em;
+                padding: 2px;
+                box-sizing: border-box;
+                pointer-events: none; /* чтобы овал не мешал дальнейшим кликам */
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container" id="imageContainer">
+            <img src="./img/classmates.webp" id="mainImage" alt="Картинка" />
+        </div>
+
+        <script>
+            const container = document.getElementById('imageContainer');
+            const img = document.getElementById('mainImage');
+
+            let realWidth = 1031; // реальные размеры картинки
+            let realHeight = 816;
+            let ovalHelp = null; // ссылка на овал помощи
+
+            function round(x, decimals = 0) {
+                const factor = Math.pow(10, decimals);
+                return Math.round(x * factor) / factor;
+            }
+
+            // Обработчик клика по контейнеру
+            container.addEventListener('click', function (e) {
+                // Получаем координаты клика относительно контейнера
+                const rect = container.getBoundingClientRect();
+
+                const clickX = e.clientX - rect.left;
+                const clickY = e.clientY - rect.top;
+
+                const displayWidth = rect.width;
+
+                // Масштаб по ширине
+                const scaleX = displayWidth / realWidth;
+
+                // Реальные координаты
+                const realX = clickX / scaleX;
+                const realY = clickY / scaleX;
+
+                // Процентное соотношение
+                const percentLeft = round((realX / realWidth) * 100, 1);
+                const percentTop = round((realY / realHeight) * 100, 1);
+
+                if (!ovalHelp) {
+                    // Создаем овал, если еще нет
+                    ovalHelp = document.createElement('div');
+                    ovalHelp.className = 'oval-help';
+                    container.appendChild(ovalHelp);
+                }
+
+                // Обновляем позицию и содержимое овала
+                // ovalHelp.style.left = 'calc(' + percentLeft + '%)';
+                // ovalHelp.style.top = 'calc(' + percentTop + '%)';
+                ovalHelp.style.left = percentLeft + '%';
+                ovalHelp.style.top = percentTop + '%';
+                ovalHelp.textContent = `left:${percentLeft}%, top:${percentTop}%`;
+            });
+        </script>
+    </body>
+</html>

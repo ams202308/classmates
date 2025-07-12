@@ -11,20 +11,23 @@
         <!-- Всплывающее окно с фото и его описанием -->
         <div class="popup-info" id="popup-info">
             <span class="popup-close" onclick="hidePopup()">×</span>
-            <img class="popup-image" src="" alt="" />
+            <img class="popup-image" src="" alt="Фото" />
             <p class="popup-caption"></p>
         </div>
 
-        <div class="container">
+        <div class="container" id="container">
             <!-- Виньетка одноклассников на весь экран -->
-            <img class="classmates" src="./img/classmates.webp" alt="Image" />
+            <img class="classmates" src="./img/classmates.webp" alt="Виньетка" />
             <!-- Подсветка фото на виньетке + краткая инф-ция об одноклассниках 
             id - имя файла с всплывающим фото
             style - координаты top,left подсветки (полупрозрачный овал)
             data-text - краткая инф-ция (Имя Фамилия - год фото. Город проживания)
              -->
-            <div class="backlight" id="arykov-malik.webp" style="top: 64%; left: 79%" 
+            <div class="backlight" id="arykov-malik.webp" style="left: 79%; top: 64%;" 
                 data-text="Малик Арыков - 2015. Калуга">
+            </div>
+            <div class="backlight" id="arykova-olga.webp" style="left: 32.7%; top: 47.2%;" 
+                data-text="Ольга Арыкова - 2018. Калуга">
             </div>
         </div>
 

@@ -20,7 +20,8 @@ body {
 .backlight {
     position: absolute;
     width: 7.5%;
-    height: 13%;
+    height: 12.5%;
+    /* border: 1px solid red; */
     border-radius: 50% / 50%; /* овал */
     background-color: rgba(165, 42, 42, 0.1); /* коричневый */
 }
