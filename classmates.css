@@ -1,0 +1,59 @@
+body {
+    margin: 0;
+    overflow: auto; /* допускается вертикальная прокрутка */
+}
+
+/* Контейнер для виньетки и подсвеченных фото */
+.container {
+    position: relative;
+    width: 100%;
+    height: auto;
+}
+
+/* Общее фото - виньетка */
+.classmates {
+    width: 100%;
+    height: auto;
+}
+
+/* Подсветка фото на виньетке - признак наличия всплывающего фото и описания */
+.backlight {
+    position: absolute;
+    width: 7.5%;
+    height: 13%;
+    border-radius: 50% / 50%; /* овал */
+    background-color: rgba(165, 42, 42, 0.1); /* коричневый */
+}
+
+/* Всплывающее окно (фото + описание) */
+.popup-info {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    z-index: 1000;
+}
+
+/* Всплывающее фото */
+.popup-image {
+    max-width: 50vmin;
+    max-height: 50vmin;
+    object-fit: contain;
+}
+
+/* Шрифт описания под фото */
+.popup-caption {
+    font-family: Arial, sans-serif;
+}
+
+/* Крестик для закрытия всплывающего окна */
+.popup-close {
+    float: right;
+    cursor: pointer;
+    font-weight: bold;
+}

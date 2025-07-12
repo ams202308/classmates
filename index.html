@@ -4,70 +4,11 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Одноклассники</title>
-        <style>
-            body {
-                margin: 0;
-                overflow: auto; /* допускается вертикальная прокрутка */
-            }
-
-            /* Контейнер для виньетки и подсвеченных фото */
-            .container {
-                position: relative;
-                width: 100%;
-                height: auto;
-            }
-
-            /* Общее фото - виньетка */
-            .classmates {
-                width: 100%;
-                height: auto;
-            }
-
-            /* Подсветка фото на виньетке - признак наличия всплывающего фото и описания */
-            .backlight {
-                position: absolute;
-                width: 7.5%;
-                height: 13%;
-                border-radius: 50% / 50%; /* овал */
-                background-color: rgba(165, 42, 42, 0.1); /* коричневый */
-            }
-
-            /* Всплывающее окно (фото + описание) */
-            .popup-info {
-                display: none;
-                position: fixed;
-                top: 50%;
-                left: 50%;
-                transform: translate(-50%, -50%);
-                background-color: white;
-                padding: 20px;
-                border-radius: 10px;
-                box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-                z-index: 1000;
-            }
-
-            /* Всплывающее фото */
-            .popup-image {
-                max-width: 50vmin;
-                max-height: 50vmin;
-                object-fit: contain;
-            }
-
-            /* Шрифт описания под фото */
-            .popup-caption {
-                font-family: Arial, sans-serif;
-            }
-
-            /* Крестик для закрытия всплывающего окна */
-            .popup-close {
-                float: right;
-                cursor: pointer;
-                font-weight: bold;
-            }
-        </style>
+        <link rel="stylesheet" href="classmates.css">
     </head>
 
     <body>
+        <!-- Всплывающее окно с фото и его описанием -->
         <div class="popup-info" id="popup-info">
             <span class="popup-close" onclick="hidePopup()">×</span>
             <img class="popup-image" src="" alt="" />
@@ -75,8 +16,9 @@
         </div>
 
         <div class="container">
+            <!-- Виньетка одноклассников на весь экран -->
             <img class="classmates" src="./img/classmates.webp" alt="Image" />
-            <!-- подсветка фото на виньетке + краткая инф-ция об одноклассниках 
+            <!-- Подсветка фото на виньетке + краткая инф-ция об одноклассниках 
             id - имя файла с всплывающим фото
             style - координаты top,left подсветки (полупрозрачный овал)
             data-text - краткая инф-ция (Имя Фамилия - год фото. Город проживания)
@@ -86,45 +28,6 @@
             </div>
         </div>
 
-        <script>
-            /**
-             * Ко всем элементам с классом backlight (подсветка фото)
-             * добавляем обработчик события 'click' -> showPopup
-             */
-            let backlights = document.querySelectorAll('.backlight');
-            backlights.forEach((backlight) => {
-                backlight.addEventListener('click', () => {
-                    showPopup(backlight);
-                });
-            });
-
-            /** 
-             * Показывать всплывающее фото с описанием
-             * @param {event} - подсвеченное фото (<div class='backlight'...)
-             */
-            function showPopup(divElement) {
-                let imageSrc = './img/' + divElement.id || ''; // имя файла с фото берем из ID
-                let popupText = divElement.dataset.text || ''; // описание фото - из data-text
-
-                // устанавливаем полученные значения в соответствующее место
-                let popupInfo = document.getElementById('popup-info');
-                let imgElement = popupInfo.querySelector('img');
-                let textElement = popupInfo.querySelector('p');
-                imgElement.src = imageSrc;
-                textElement.innerText = popupText;
-
-                // показываем всплывающее окно
-                popupInfo.style.display = 'block';
-            }
-
-            /**
-             * Скрыть(закрыть) всплывающее фото с описанием
-             */
-            function hidePopup() {
-                // скрываем всплывающее окно
-                let popupInfo = document.getElementById('popup-info');
-                popupInfo.style.display = 'none';
-            }
-        </script>
+        <script src="classmates.js"></script>
     </body>
 </html>
