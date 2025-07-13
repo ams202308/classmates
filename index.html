@@ -11,11 +11,17 @@
         <!-- Всплывающее окно с фото и его описанием -->
         <div class="popup-info" id="popup-info">
             <span class="popup-close" onclick="hidePopup()">×</span>
-            <img class="popup-image" src="" alt="Фото" />
-            <p class="popup-caption"></p>
+            <figure>
+                <img class="popup-image" src="" alt="фото">
+                <figcaption class="popup-caption">Имя Фамилия - год фото. Город проживания</figcaption>
+            </figure>
+            <!-- <img class="popup-image" src="" alt="Фото" />
+            <p class="popup-caption"></p> -->
         </div>
 
         <div class="container" id="container">
+            <!-- Инструкция пользователю (всплывет по клику) -->
+            <span class="help" id="head-instruction.webp" onclick="showPopup(this)">⍰</span>
             <!-- Виньетка одноклассников на весь экран -->
             <img class="classmates" src="./img/classmates.webp" alt="Виньетка" />
             <!-- Подсветка фото на виньетке + краткая инф-ция об одноклассниках 

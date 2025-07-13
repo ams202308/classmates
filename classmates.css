@@ -23,7 +23,7 @@ body {
     height: 12.5%;
     /* border: 1px solid red; */
     border-radius: 50% / 50%; /* овал */
-    background-color: rgba(165, 42, 42, 0.1); /* коричневый */
+    background-color: rgba(165, 42, 42, 0.1);
 }
 
 /* Всплывающее окно (фото + описание) */
@@ -34,7 +34,6 @@ body {
     left: 50%;
     transform: translate(-50%, -50%);
     background-color: white;
-    padding: 20px;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
     z-index: 1000;
@@ -44,17 +43,32 @@ body {
 .popup-image {
     max-width: 50vmin;
     max-height: 50vmin;
-    object-fit: contain;
+    /* object-fit: contain; */
+    object-fit: cover;
 }
 
 /* Шрифт описания под фото */
 .popup-caption {
     font-family: Arial, sans-serif;
+    font-size: 0.8em;
 }
 
-/* Крестик для закрытия всплывающего окна */
+/* Значок крестика для закрытия окна */
 .popup-close {
-    float: right;
-    cursor: pointer;
+    position: absolute;
     font-weight: bold;
+    cursor: pointer;
+    top: 5px;
+    right: 10px;
+}
+
+/* Значок помощи (инструкции) */
+.help {
+    position: absolute;
+    cursor: pointer;
+    top: 15px;
+    right: 18px;
+    color: rgb(79, 79, 79);
+    background-color: rgba(165, 42, 42, 0.1);
+    font-family: Arial, sans-serif;
 }
