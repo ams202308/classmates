@@ -13,17 +13,16 @@ backlights.forEach((backlight) => {
  * Показывать всплывающее фото с описанием
  * @param {event} - подсвеченное фото (<div class='backlight'...)
  */
-function showPopup(divElement) {
-    let imageSrc = './img/' + divElement.id || ''; // имя файла с фото берем из ID
-    let popupText = divElement.dataset.text || getHelp(); // описание фото - из data-text
+function showPopup(htmlElement) {
+    let imageSrc = './img/' + htmlElement.id || ''; // имя файла с фото берем из ID
+    let imageCaption = htmlElement.dataset.text || getHelp(); // описание фото - из data-text
 
     // устанавливаем полученные значения в соответствующее место
     let popupInfo = document.getElementById('popup-info');
     let imgElement = popupInfo.querySelector('img');
-    // let textElement = popupInfo.querySelector('p');
     let textElement = popupInfo.querySelector('figcaption');
     imgElement.src = imageSrc;
-    textElement.innerText = popupText;
+    textElement.innerText = imageCaption;
 
     // показываем всплывающее окно
     popupInfo.style.display = 'block';
@@ -42,11 +41,10 @@ function hidePopup() {
  * Получить инструкцию пользователя
  */
 function getHelp() {
-    const help = `При клике (тапе) по подкрашенной фотографии
+    return `При клике (тапе) по подкрашенной фотографии
     одноклассника, появится его/ее более крупное современное фото
     с комментарием (Имя Фамилия - Год фото. Город проживания).
     Если желаете, чтобы высвечивалось ваше фото, 
     то присылайте его с комментарием на malik.arykov@mail.ru.
     `
-    return help;
 }
