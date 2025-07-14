@@ -28,17 +28,15 @@
             <span class="popup-close" onclick="hidePopup()">×</span>
             <figure>
                 <img class="popup-image" src="" alt="фото" />
-                <figcaption class="popup-caption">Имя Фамилия - год фото. Город проживания</figcaption>
+                <figcaption class="popup-caption">комментарий</figcaption>
             </figure>
-            <!-- <img class="popup-image" src="" alt="Фото" />
-            <p class="popup-caption"></p> -->
         </div>
 
         <div class="container" id="container">
             <!-- Инструкция пользователю (всплывет по клику) -->
             <span class="help" id="head-instruction.webp" title="Инструкция" onclick="showPopup(this)">⍰</span>
             <!-- Виньетка одноклассников на весь экран -->
-            <img class="classmates" src="./img/classmates.webp" alt="Виньетка" />
+            <img class="classmates" src="./img/classmates.webp" alt="Выпусники Нукусской школы им. Терешковой 1973 года" />
             <!-- Подсветка фото на виньетке + краткая инф-ция об одноклассниках 
             id - имя файла с всплывающим фото
             style - координаты top,left подсветки (полупрозрачный овал)
@@ -46,12 +44,16 @@
              -->
             <div
                 class="backlight" id="arykov-malik.webp" style="left: 79%; top: 64%"
-                data-text="Малик Арыков - 2015. Калуга"
-            ></div>
+                data-text="Малик Арыков - 2015. Калуга">
+            </div>
             <div
                 class="backlight" id="arykova-olga.webp" style="left: 32.7%; top: 47.2%"
-                data-text="Ольга Арыкова - 2018. Калуга"
-            ></div>
+                data-text="Ольга Арыкова - 2018. Калуга">
+            </div>
+            <div
+                class="backlight" id="mireev-vadim.webp" style="left: 39.2%; top: 32.5%"
+                data-text="Вадим Миреев - 2024. Симферополь">
+            </div>
         </div>
 
         <script src="classmates.js"></script>
