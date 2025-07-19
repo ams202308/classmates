@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Красивая шапка таблицы</title>
+  <style>
+    .pretty-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.pretty-table thead {
+  background-color: #3498db; /* Фон шапки */
+  color: #fff; /* Цвет текста */
+  font-weight: bold;
+}
+
+.pretty-table th {
+  padding: 12px 15px;
+  text-align: left;
+  position: relative;
+}
+
+.sortable span {
+  cursor: pointer;
+}
+
+.sortable i.arrow {
+  display: inline-block;
+  vertical-align: middle;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 5px 5px 0 5px;
+  border-color: transparent transparent #fff transparent;
+  opacity: 0.5;
+  transition: transform 0.3s ease-in-out;
+  margin-left: 5px;
+}
+
+.sortable.active i.arrow {
+  opacity: 1;
+  transform: rotateX(180deg);
+}
+
+.pretty-table tbody tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+.pretty-table tbody tr:hover {
+  background-color: #ecf0f1;
+}
+
+.pretty-table td {
+  padding: 12px 15px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+/* Адаптация под мобильные экраны */
+@media (max-width: 600px) {
+  .pretty-table thead {
+    display: none;
+  }
+
+  .pretty-table tbody tr {
+    display: block;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+
+  .pretty-table tbody td {
+    display: block;
+    text-align: right;
+    position: relative;
+    padding-left: 50%;
+  }
+
+  .pretty-table tbody td::before {
+    content: attr(data-label);
+    float: left;
+    font-weight: bold;
+    text-transform: uppercase;
+    white-space: nowrap;
+  }
+}
+  </style>
+</head>
+<body>
+
+<h1>Таблица товаров</h1>
+
+<table class="pretty-table">
+  <thead>
+    <tr>
+      <th class="sortable"><span>Название товара</span><i class="arrow"></i></th>
+      <th class="sortable"><span>Категория</span><i class="arrow"></i></th>
+      <th class="sortable"><span>Цена ($)</span><i class="arrow"></i></th>
+      <th class="sortable"><span>Количество</span><i class="arrow"></i></th>
+      <th class="sortable"><span>Общая сумма ($)</span><i class="arrow"></i></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Кофе</td>
+      <td>Напитки</td>
+      <td>10</td>
+      <td>5</td>
+      <td>50</td>
+    </tr>
+    <tr>
+      <td>Хлеб</td>
+      <td>Продукты питания</td>
+      <td>2</td>
+      <td>10</td>
+      <td>20</td>
+    </tr>
+    <tr>
+      <td>Шоколад</td>
+      <td>Десерты</td>
+      <td>5</td>
+      <td>7</td>
+      <td>35</td>
+    </tr>
+  </tbody>
+</table>
+
+</body>
+</html>
