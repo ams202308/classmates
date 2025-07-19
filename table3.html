@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <meta charset="UTF-8" />
+        <title>Таблица по столбцам</title>
+
+        <style>
+            /* Общие стили для таблицы */
+            .responsive-table {
+                width: 100%;
+                border-collapse: collapse;
+            }
+
+            /* Стили для ячеек */
+            .responsive-table th,
+            .responsive-table td {
+                border: 1px solid #ddd;
+                padding: 8px;
+            }
+
+            /* Медиа-запрос для узких экранов */
+            @media (max-width: 600px) {
+                /* Убираем отображение таблицы как таблицы */
+                .responsive-table,
+                .responsive-table thead,
+                .responsive-table tbody,
+                .responsive-table tr,
+                .responsive-table th,
+                .responsive-table td {
+                    display: block;
+                    width: 100%;
+                    box-sizing: border-box;
+                    margin: 0;
+                    padding: 0;
+                    border: none;
+                }
+
+                /* Заголовки скрываем, чтобы не мешали */
+                .responsive-table thead {
+                    display: none;
+                }
+
+                /* Каждая строка превращается в блок */
+                .responsive-table tr {
+                    margin-bottom: 20px;
+                    border: 1px solid #ccc;
+                    padding: 10px;
+                    border-radius: 5px;
+                    background: #f9f9f9;
+                }
+
+                /* Каждая ячейка становится блоком с псевдоэлементом перед ней, показывающим название столбца */
+                .responsive-table td {
+                    position: relative;
+                    padding-left: 50%;
+                }
+
+                .responsive-table td::before {
+                    content: attr(data-label);
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: 50%;
+                    padding-left: 10px;
+                    font-weight: bold;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <table class="responsive-table">
+            <thead>
+                <tr>
+                    <th>Столбец 1</th>
+                    <th>Столбец 2</th>
+                    <th>Столбец 3</th>
+                    <th>Столбец 4</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>тест 1</td>
+                    <td>текст 2</td>
+                    <td>текст 3</td>
+                    <td>текст 4</td>
+                </tr>
+                <!-- добавьте другие строки по необходимости -->
+                <tr>
+                    <td>тест 1</td>
+                    <td>текст 2</td>
+                    <td>текст 3</td>
+                    <td>текст 4</td>
+                </tr>
+                <tr>
+                    <td>тест 1</td>
+                    <td>текст 2</td>
+                    <td>текст 3</td>
+                    <td>текст 4</td>
+                </tr>
+                <tr>
+                    <td>тест 1</td>
+                    <td>текст 2</td>
+                    <td>текст 3</td>
+                    <td>текст 4</td>
+                </tr>
+                <tr>
+                    <td>тест 1</td>
+                    <td>текст 2</td>
+                    <td>текст 3</td>
+                    <td>текст 4</td>
+                </tr>
+                <tr>
+                    <td>тест 1</td>
+                    <td>текст 2</td>
+                    <td>текст 3</td>
+                    <td>текст 4</td>
+                </tr>
+                <tr>
+                    <td>тест 1</td>
+                    <td>текст 2</td>
+                    <td>текст 3</td>
+                    <td>текст 4</td>
+                </tr>
+                <tr>
+                    <td>тест 1</td>
+                    <td>текст 2</td>
+                    <td>текст 3</td>
+                    <td>текст 4</td>
+                </tr>
+                <tr>
+                    <td>тест 1</td>
+                    <td>текст 2</td>
+                    <td>текст 3</td>
+                    <td>текст 4</td>
+                </tr>
+                <tr>
+                    <td>тест 1</td>
+                    <td>текст 2</td>
+                    <td>текст 3</td>
+                    <td>текст 4</td>
+                </tr>
+                <tr>
+                    <td>тест 1</td>
+                    <td>текст 2</td>
+                    <td>текст 3</td>
+                    <td>текст 4</td>
+                </tr>
+                <tr>
+                    <td>тест 1</td>
+                    <td>текст 2</td>
+                    <td>текст 3</td>
+                    <td>текст 4</td>
+                </tr>
+                <tr>
+                    <td>тест 1</td>
+                    <td>текст 2</td>
+                    <td>текст 3</td>
+                    <td>текст 4</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <script>
+            // Добавляем атрибут data-label к каждой ячейке для отображения заголовка
+            document.addEventListener('DOMContentLoaded', () => {
+                const table = document.querySelector('.responsive-table');
+                const headers = Array.from(table.querySelectorAll('thead th')).map((th) => th.innerText);
+
+                table.querySelectorAll('tbody tr').forEach((row) => {
+                    row.querySelectorAll('td').forEach((td, index) => {
+                        td.setAttribute('data-label', headers[index]);
+                    });
+                });
+            });
+        </script>
+    </body>
+</html>

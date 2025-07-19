@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <meta charset="UTF-8" />
+        <title>Таблица по столбцам</title>
+
+        <style>
+            .mobile-table {
+                display: table;
+                width: 100%;
+            }
+
+            .mobile-table .column {
+                display: table-row-group;
+            }
+
+            .mobile-table .header,
+            .mobile-table .data {
+                display: table-row;
+            }
+
+            .mobile-table .header div,
+            .mobile-table .data div {
+                display: table-cell;
+                padding: 10px;
+                border: 1px solid #ddd;
+            }
+
+            @media (max-width: 768px) {
+                .mobile-table .column {
+                    display: block;
+                    margin-bottom: 20px;
+                }
+
+                .mobile-table .header {
+                    display: block;
+                    font-weight: bold;
+                    border-bottom: 2px solid #333;
+                }
+
+                .mobile-table .data {
+                    display: block;
+                    padding: 8px 0;
+                }
+
+                .mobile-table .header div,
+                .mobile-table .data div {
+                    display: block;
+                    border: none;
+                    padding: 5px 0;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <div class="mobile-table">
+            <div class="column">
+                <div class="header"><div>столбец 1</div></div>
+                <div class="data"><div>данные 1</div></div>
+                <div class="data"><div>данные 1</div></div>
+                <div class="data"><div>данные 1</div></div>
+                <div class="data"><div>данные 1</div></div>
+                <div class="data"><div>данные 1</div></div>
+                <div class="data"><div>данные 1</div></div>
+                <div class="data"><div>данные 1</div></div>
+                <div class="data"><div>данные 1</div></div>
+                <div class="data"><div>данные 1</div></div>
+            </div>
+            <div class="column">
+                <div class="header"><div>столбец 2</div></div>
+                <div class="data"><div>данные 2</div></div>
+                <div class="data"><div>данные 2</div></div>
+                <div class="data"><div>данные 2</div></div>
+                <div class="data"><div>данные 2</div></div>
+                <div class="data"><div>данные 2</div></div>
+                <div class="data"><div>данные 2</div></div>
+                <div class="data"><div>данные 2</div></div>
+                <div class="data"><div>данные 2</div></div>
+            </div>
+            <!-- Повторить для остальных столбцов -->
+        </div>
+    </body>
+</html>

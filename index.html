@@ -5,8 +5,9 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Одноклассники</title>
         <meta name="description" content="Выпусники Нукусской школы им. Терешковой 1973 года" />
-        <meta name="keywords" content="город Нукус, школа им.Терешковой, класс 10, выпуск 1973">
+        <meta name="keywords" content="город Нукус, школа им.Терешковой, класс 10, выпуск 1973" />
         <link rel="stylesheet" href="classmates.css" />
+        <link rel="stylesheet" href="pretty-table.css" />
         <script type="application/ld+json">
             {
                 "@context": "https://schema.org",
@@ -16,8 +17,7 @@
                 "thumbnailUrl": "https://example.com/thumbnails/classmates-thumbnail.jpg",
                 "caption": "Класс 10, школа им.Терешковой г.Нукус, выпуск 1973 г.",
                 "author": { "@type": "Person", "name": "Арыков Малик" },
-                "inAlbum": [{ "@type": "CreativeWork", "name": "Одноклассники" }],
-                "about": ["Арыков Малик", "Арыкова Ольга", "Миреев Вадим"]
+                "inAlbum": [{ "@type": "CreativeWork", "name": "Одноклассники" }]
             }
         </script>
     </head>
@@ -36,25 +36,114 @@
             <!-- Инструкция пользователю (всплывет по клику) -->
             <span class="help" id="head-instruction.webp" title="Инструкция" onclick="showPopup(this)">⍰</span>
             <!-- Виньетка одноклассников на весь экран -->
-            <img class="classmates" src="./img/classmates.webp" alt="Выпусники Нукусской школы им. Терешковой 1973 года" />
+            <img
+                class="classmates"
+                src="./img/classmates.webp"
+                alt="Выпусники Нукусской школы им. Терешковой 1973 года"
+            />
             <!-- Подсветка фото на виньетке + краткая инф-ция об одноклассниках 
             id - имя файла с всплывающим фото
             style - координаты top,left подсветки (полупрозрачный овал)
             data-text - краткая инф-ция (Имя Фамилия - год фото. Город проживания)
              -->
             <div
-                class="backlight" id="arykov-malik.webp" style="left: 79%; top: 64%"
-                data-text="Малик Арыков - 2015. Калуга">
-            </div>
+                class="backlight"
+                id="arykov-malik.webp"
+                style="left: 79%; top: 64%"
+                data-text="Малик Арыков - 2015. Калуга"
+            ></div>
             <div
-                class="backlight" id="arykova-olga.webp" style="left: 32.7%; top: 47.2%"
-                data-text="Ольга Арыкова - 2018. Калуга">
-            </div>
+                class="backlight"
+                id="arykova-olga.webp"
+                style="left: 32.7%; top: 47.2%"
+                data-text="Ольга Арыкова - 2018. Калуга"
+            ></div>
             <div
-                class="backlight" id="mireev-vadim.webp" style="left: 39.2%; top: 32.5%"
-                data-text="Вадим Миреев - 2024. Симферополь">
-            </div>
+                class="backlight"
+                id="mireev-vadim.webp"
+                style="left: 39.2%; top: 32.5%"
+                data-text="Вадим Миреев - 2024. Симферополь"
+            ></div>
         </div>
+
+        <table class="pretty-table">
+            <thead>
+                <tr>
+                    <th><span>1 ряд</span></th>
+                    <th><span>2 ряд</span></th>
+                    <th><span>3 ряд</span></th>
+                    <th><span>4 ряд</span></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Догадина Ольга</td>
+                    <td>Тлеубаева Нурия</td>
+                    <td>Ким Эмма</td>
+                    <td>Палваниязова Гуля</td>
+                </tr>
+                <tr>
+                    <td>Дуйсенгалиев Рахман</td>
+                    <td>Мартынова Людмила</td>
+                    <td>Жалнина Галина</td>
+                    <td>Хан Варвара</td>
+                </tr>
+                <tr>
+                    <td>Ким Лариса</td>
+                    <td>Хотенко Ольга</td>
+                    <td>Вахидова Земфира</td>
+                    <td>Барсукова Надежда</td>
+                </tr>
+                <tr>
+                    <td>Борисенко Виталий</td>
+                    <td>Баянова Ольга</td>
+                    <td>Ким Анастасия</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Миреев Вадим</td>
+                    <td>Раджапов Гафур</td>
+                    <td>Ходжаниязов Зиватдин</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Султанов Сергей</td>
+                    <td>Никулин Константин</td>
+                    <td>Руди Наталья</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Булатова Татьяна</td>
+                    <td>Косманова Дариха</td>
+                    <td>Арыков Малик</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Хасанова Анна</td>
+                    <td>Ан Галина</td>
+                    <td>Туреев Марат</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Демидова Татьяна</td>
+                    <td>Арзыханов Кошмурат</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>Сарсенбаев Мелис</td>
+                    <td>Хожаметов Ильяс</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>Кирюхина Лариса</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </tbody>
+        </table>
 
         <script src="classmates.js"></script>
     </body>
