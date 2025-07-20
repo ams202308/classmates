@@ -20,11 +20,11 @@ body {
 /* Подсветка фото на виньетке - признак наличия всплывающего фото и описания */
 .backlight {
     position: absolute;
-    width: 7.5%;
-    height: 12.5%;
+    width: 8%;
+    height: 13.5%;
     /* border: 1px solid red; */
     border-radius: 50% / 50%; /* овал */
-    background-color: rgba(165, 42, 42, 0.1);
+    background-color: rgba(165, 42, 42, 0.2);
 }
 
 /* Всплывающее окно (фото + описание) */
