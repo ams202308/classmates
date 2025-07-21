@@ -22,7 +22,7 @@ function showPopup(htmlElement) {
     let imgElement = popupInfo.querySelector('img');
     let textElement = popupInfo.querySelector('figcaption');
     imgElement.src = imageSrc;
-    textElement.innerText = imageCaption;
+    textElement.innerHTML = imageCaption;
 
     // показываем всплывающее окно
     popupInfo.style.display = 'block';

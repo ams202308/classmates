@@ -48,9 +48,10 @@ body {
     object-fit: cover;
 }
 
-/* Шрифт описания под фото */
+/* Подпись под фото */
 .popup-caption {
     font-size: 0.8em;
+    white-space: pre-wrap;
 }
 
 /* Значок крестика для закрытия окна */
